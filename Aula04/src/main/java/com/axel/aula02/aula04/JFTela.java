@@ -40,6 +40,8 @@ public class JFTela extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtAtraso = new javax.swing.JTextField();
         lbTotal = new javax.swing.JLabel();
+        btnIf = new javax.swing.JButton();
+        btnLoop = new javax.swing.JButton();
 
         jButton2.setText("jButton2");
 
@@ -70,13 +72,27 @@ public class JFTela extends javax.swing.JFrame {
         lbTotal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbTotal.setText("Total a pagar: R$0,00");
 
+        btnIf.setText("If...else");
+        btnIf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIfActionPerformed(evt);
+            }
+        });
+
+        btnLoop.setText("Loop");
+        btnLoop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoopActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -91,7 +107,10 @@ public class JFTela extends javax.swing.JFrame {
                             .addComponent(txtJuros, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPagamento, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCalcular))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCalcular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnIf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnLoop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(lbTotal))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
@@ -113,14 +132,18 @@ public class JFTela extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtJuros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtJuros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIf))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtAtraso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAtraso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLoop))
                 .addGap(18, 18, 18)
                 .addComponent(lbTotal)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         pack();
@@ -144,6 +167,32 @@ public class JFTela extends javax.swing.JFrame {
         
         lbTotal.setText("Total a pagar: R$"+montante);
     }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void btnIfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIfActionPerformed
+        // TODO add your handling code here:
+        int a = Integer.valueOf(txtPagamento.getText());
+        int b = Integer.valueOf(txtJuros.getText());
+        int c = Integer.valueOf(txtAtraso.getText());
+        String mensagem = "";
+        
+        if(a>b && a>c) {
+            mensagem = "A é o maior valor";
+        }else if(b>a && b>c) {
+            mensagem = "B é o maior valor";
+        }else if(c>a && c>b) {
+            mensagem = "C é o maior valor";
+        }else {
+            mensagem = "Resultado não esperado";
+        }
+        JOptionPane.showMessageDialog(null, mensagem);
+    }//GEN-LAST:event_btnIfActionPerformed
+
+    private void btnLoopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoopActionPerformed
+        // TODO add your handling code here:
+        for (int i = 1; i<=5;i++) {
+            JOptionPane.showMessageDialog(null, "Vou repetir "+i+" vezes");
+        }
+    }//GEN-LAST:event_btnLoopActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,6 +233,8 @@ public class JFTela extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnContar;
+    private javax.swing.JButton btnIf;
+    private javax.swing.JButton btnLoop;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
