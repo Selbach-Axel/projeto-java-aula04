@@ -190,7 +190,11 @@ public class JFTela extends javax.swing.JFrame {
     private void btnLoopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoopActionPerformed
         // TODO add your handling code here:
         for (int i = 1; i<=5;i++) {
-            JOptionPane.showMessageDialog(null, "Vou repetir "+i+" vezes");
+            if(i == 1){
+                JOptionPane.showMessageDialog(null, "Vou repetir "+i+" vez");
+            }else{
+                JOptionPane.showMessageDialog(null, "Vou repetir "+i+" vezes");   
+            }
         }
     }//GEN-LAST:event_btnLoopActionPerformed
 
