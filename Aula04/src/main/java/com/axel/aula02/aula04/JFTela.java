@@ -4,6 +4,8 @@
  */
 package com.axel.aula02.aula04;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 08272
@@ -28,8 +30,16 @@ public class JFTela extends javax.swing.JFrame {
 
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtNome = new javax.swing.JTextField();
+        btnContar = new javax.swing.JButton();
+        txtPagamento = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        btnCalcular = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtJuros = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtAtraso = new javax.swing.JTextField();
+        lbTotal = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
 
@@ -37,12 +47,28 @@ public class JFTela extends javax.swing.JFrame {
 
         jLabel1.setText("Digite o seu nome");
 
-        jButton1.setText("Contador de letras");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnContar.setText("Contador de letras");
+        btnContar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnContarActionPerformed(evt);
             }
         });
+
+        jLabel2.setText("Valor do pagamento");
+
+        btnCalcular.setText("Calcular");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Taxa de juros");
+
+        jLabel4.setText("Dias de atraso");
+
+        lbTotal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbTotal.setText("Total a pagar: R$0,00");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -53,9 +79,20 @@ public class JFTela extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(btnContar))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtAtraso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(txtJuros, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPagamento, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCalcular))
+                    .addComponent(lbTotal))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -65,17 +102,48 @@ public class JFTela extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addContainerGap(249, Short.MAX_VALUE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnContar))
+                .addGap(27, 27, 27)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCalcular))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtJuros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtAtraso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbTotal)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnContarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        String nome = txtNome.getText();
+        int tamanho = nome.length();
+        JOptionPane.showMessageDialog(null, "A palavra "+nome+ " tem "+tamanho+" letras");
+    }//GEN-LAST:event_btnContarActionPerformed
+
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        // TODO add your handling code here:
+        double valor = Double.valueOf(txtPagamento.getText());
+        double taxa = Double.valueOf(txtJuros.getText());
+        int atraso = Integer.valueOf(txtAtraso.getText());
+        
+        double juros = taxa * valor * atraso;
+        double montante = valor + juros;
+        
+        lbTotal.setText("Total a pagar: R$"+montante);
+    }//GEN-LAST:event_btnCalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,9 +182,17 @@ public class JFTela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnCalcular;
+    private javax.swing.JButton btnContar;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lbTotal;
+    private javax.swing.JTextField txtAtraso;
+    private javax.swing.JTextField txtJuros;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtPagamento;
     // End of variables declaration//GEN-END:variables
 }
